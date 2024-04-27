@@ -12,7 +12,7 @@ export class CounterComponent {
   @Input({required: true}) message = '';
 
   constructor() {
-    console.log('Constructor');
+    console.log('Constructor ');
     console.log('-'.repeat(10));
   }
 }
