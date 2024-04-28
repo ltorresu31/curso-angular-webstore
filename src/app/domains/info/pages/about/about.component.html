@@ -1,9 +1,9 @@
-<p>
-  <input type="number" [value]="duration()" (change)="changeDuration($event)">
-</p>
-<p>
-  <input type="text" [value]="message()" (change)="changeMessage($event)">
-</p>
-<app-counter [duration]="duration()" [message]="message()">
-</app-counter>
+<div class="px-10">
+  <h1 class="text-lg font-bold">About</h1>
+  <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur nesciunt, quasi! Ad, adipisci alias amet aut beatae culpa, doloribus eligendi eos hic id impedit nesciunt odio rerum temporibus, unde voluptatibus?</p>
+  <p class="text-sm">Numero de clientes:
+    <app-counter [duration]="duration()" [message]="message()" *ngIf="duration() > 0">
+    </app-counter>
+  </p>
 
+</div>

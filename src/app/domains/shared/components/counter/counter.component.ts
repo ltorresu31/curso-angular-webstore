@@ -1,15 +1,17 @@
-import {Component, Input, SimpleChanges} from '@angular/core';
+import {Component, Input, signal, SimpleChanges} from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-counter',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.css'
 })
 export class CounterComponent {
   @Input({required: true}) duration = 0;
   @Input({required: true}) message = '';
+  counter = signal(0);
 
   constructor() {
     console.log('Constructor ');
@@ -19,6 +21,10 @@ export class CounterComponent {
     console.log('ngOnChanges ');
     console.log('-'.repeat(10));
     console.log(changes);
+    const duration = changes['duration'];
+    if(duration && duration.currentValue !== duration.previousValue){
+      this.doSomething();
+    }
   }
   ngOnInit(){
     console.log('ngOnInit ');
@@ -29,5 +35,13 @@ export class CounterComponent {
   ngAfterViewInit() {
     console.log('ngAfterViewInit');
     console.log('-'.repeat(10));
+  }
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
+    console.log('-'.repeat(10));
+  }
+
+  doSomething(){
+    console.log('doSomething');
   }
 }
