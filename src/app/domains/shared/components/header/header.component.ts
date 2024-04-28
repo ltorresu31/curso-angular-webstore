@@ -1,13 +1,16 @@
 import {Component, inject, signal} from '@angular/core';
 import {CurrencyPipe, NgForOf} from "@angular/common";
 import {CartService} from "@shared/services/cart.service";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
     NgForOf,
-    CurrencyPipe
+    CurrencyPipe,
+    RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
